@@ -22,7 +22,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "VCS-20-09-2019/lambda.js",
-        "code": "exports.handler = function(event, context, callback) {\n    \n    callback(null, {\"message\": \"Successfully executed\"});\n}",
+        "code": "exports.handler = function(event, context, callback) {\n    \n    callback(null, {\"message\": \"Successfully executed\"});\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n}",
         "config": {
           "runtime": "nodejs8.10",
           "handler": "handler",
@@ -55,17 +55,17 @@
           "name": "KK",
           "url": "https://sqs.us-east-1.amazonaws.com/318300609668/KK",
           "selectedRegion": "us-east-1",
-          "deliveryDelay": 0,
+          "deliveryDelay": "4",
           "deliveryDelayUnit": "seconds",
           "useRedrivePolicy": false,
-          "useSSE": false,
+          "useSSE": true,
           "kmsCustomerMasterKey": "default",
           "accountId": "318300609668",
           "dataKeyReusePeriod": 5,
           "queueType": "standardQueue",
           "defaultVisibilityTimeout": 30,
           "defaultVisibilityTimeoutUnit": "seconds",
-          "messageRetentionPeriod": 4,
+          "messageRetentionPeriod": "5",
           "messageRetentionPeriodUnit": "days",
           "maximumMessageSize": 256,
           "receiveMessageWaitTime": 0,
@@ -99,7 +99,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1568973598671
+    "lastSave": 1568973983940
   },
   "VCS_STATE": {
     "provider": "GitHub",
