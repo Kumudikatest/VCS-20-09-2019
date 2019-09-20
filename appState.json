@@ -22,7 +22,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "VCS-20-09-2019/lambda.js",
-        "code": "exports.handler = function(event, context, callback) {\n    \n    callback(null, {\"message\": \"Successfully executed\"});\n}",
+        "code": "let AWS = require('aws-sdk');\nconst s3 = new AWS.S3();\n\nexports.handler = function (event, context, callback) {\n    s3.listObjects({\n        'Bucket': 'kkk',\n        'MaxKeys': 10,\n        'Prefix': ''\n    }).promise()\n        .then(data => {\n            console.log(data);           // successful response\n            /*\n            data = {\n                Contents: [\n                    {\n                       ETag: \"\\\"70ee1738b6b21e2c8a43f3a5ab0eee71\\\"\",\n                       Key: \"example1.jpg\",\n                       LastModified: \"<Date Representation>\",\n                       Owner: {\n                          DisplayName: \"myname\",\n                          ID: \"12345example25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc\"\n                       },\n                       Size: 11,\n                       StorageClass: \"STANDARD\"\n                    },\n                    // {...}\n                ]\n            }\n            */\n        })\n        .catch(err => {\n            console.log(err, err.stack); // an error occurred\n        });\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
         "config": {
           "runtime": "nodejs8.10",
           "handler": "handler",
@@ -30,14 +30,7 @@
           "memory": 128,
           "layers": []
         },
-        "triggers": [
-          {
-            "resourceName": "sqsKK",
-            "config": {
-              "BatchSize": "10"
-            }
-          }
-        ]
+        "triggers": []
       }
     },
     "rootNode": "8ce350b0-85e7-4c06-99b1-99e002e45537",
@@ -46,31 +39,15 @@
     ],
     "currentFileId": "c86fcd03-68b7-4596-9186-1d5e4111f2a6",
     "resources": {
-      "sqsKK": {
-        "name": "sqsKK",
-        "type": "SQS",
+      "s3kkk": {
+        "name": "s3kkk",
+        "type": "S3",
         "config": {
           "mode": 0,
-          "existing": false,
-          "name": "KK",
-          "url": "https://sqs.us-east-1.amazonaws.com/318300609668/KK",
-          "selectedRegion": "us-east-1",
-          "deliveryDelay": 0,
-          "deliveryDelayUnit": "seconds",
-          "useRedrivePolicy": false,
-          "useSSE": false,
-          "kmsCustomerMasterKey": "default",
-          "accountId": "318300609668",
-          "dataKeyReusePeriod": 5,
-          "queueType": "standardQueue",
-          "defaultVisibilityTimeout": 30,
-          "defaultVisibilityTimeoutUnit": "seconds",
-          "messageRetentionPeriod": 4,
-          "messageRetentionPeriodUnit": "days",
-          "maximumMessageSize": 256,
-          "receiveMessageWaitTime": 0,
-          "deadLetterQueueName": "",
-          "contentBasedDeduplication": false
+          "bucket": {
+            "region": "us-east-1",
+            "name": "kkk"
+          }
         }
       }
     },
@@ -89,7 +66,15 @@
       }
     ],
     "packageJSON": {
-      "dependencies": {}
+      "dependencies": {
+        "aws-sdk": {
+          "name": "aws-sdk",
+          "language": "javascript",
+          "version": "2.176.0",
+          "dev": true,
+          "notRemovable": false
+        }
+      }
     }
   },
   "PROJECT_META": {
@@ -99,7 +84,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1568974230909
+    "lastSave": 1568974482389
   },
   "VCS_STATE": {
     "provider": "GitHub",
