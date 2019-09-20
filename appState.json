@@ -30,7 +30,16 @@
           "memory": 128,
           "layers": []
         },
-        "triggers": []
+        "triggers": [
+          {
+            "resourceName": "s3kkk",
+            "config": {
+              "type": "s3:ObjectCreated:*",
+              "keyPrefix": "",
+              "keySuffix": ""
+            }
+          }
+        ]
       }
     },
     "rootNode": "8ce350b0-85e7-4c06-99b1-99e002e45537",
@@ -84,7 +93,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1568974482389
+    "lastSave": 1568974542111
   },
   "VCS_STATE": {
     "provider": "GitHub",
