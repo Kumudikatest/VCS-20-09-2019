@@ -1,0 +1,111 @@
+{
+  "EDITOR_STATE": {
+    "allProjectFiles": {
+      "8ce350b0-85e7-4c06-99b1-99e002e45537": {
+        "id": "8ce350b0-85e7-4c06-99b1-99e002e45537",
+        "parent": null,
+        "name": "VCS-20-09-2019",
+        "type": "DIRECTORY",
+        "isDirectory": true,
+        "children": [
+          "c86fcd03-68b7-4596-9186-1d5e4111f2a6"
+        ],
+        "isRemovable": false,
+        "filePath": "VCS-20-09-2019"
+      },
+      "c86fcd03-68b7-4596-9186-1d5e4111f2a6": {
+        "id": "c86fcd03-68b7-4596-9186-1d5e4111f2a6",
+        "parent": "8ce350b0-85e7-4c06-99b1-99e002e45537",
+        "name": "lambda.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "VCS-20-09-2019/lambda.js",
+        "code": "exports.handler = function(event, context, callback) {\n    \n    callback(null, {\"message\": \"Successfully executed\"});\n}",
+        "config": {
+          "runtime": "nodejs8.10",
+          "handler": "handler",
+          "timeout": 30,
+          "memory": 128,
+          "layers": []
+        },
+        "triggers": [
+          {
+            "resourceName": "sqsKK",
+            "config": {
+              "BatchSize": "10"
+            }
+          }
+        ]
+      }
+    },
+    "rootNode": "8ce350b0-85e7-4c06-99b1-99e002e45537",
+    "openFiles": [
+      "c86fcd03-68b7-4596-9186-1d5e4111f2a6"
+    ],
+    "currentFileId": "c86fcd03-68b7-4596-9186-1d5e4111f2a6",
+    "resources": {
+      "sqsKK": {
+        "name": "sqsKK",
+        "type": "SQS",
+        "config": {
+          "mode": 0,
+          "existing": false,
+          "name": "KK",
+          "url": "https://sqs.us-east-1.amazonaws.com/318300609668/KK",
+          "selectedRegion": "us-east-1",
+          "deliveryDelay": 0,
+          "deliveryDelayUnit": "seconds",
+          "useRedrivePolicy": false,
+          "useSSE": false,
+          "kmsCustomerMasterKey": "default",
+          "accountId": "318300609668",
+          "dataKeyReusePeriod": 5,
+          "queueType": "standardQueue",
+          "defaultVisibilityTimeout": 30,
+          "defaultVisibilityTimeoutUnit": "seconds",
+          "messageRetentionPeriod": 4,
+          "messageRetentionPeriodUnit": "days",
+          "maximumMessageSize": 256,
+          "receiveMessageWaitTime": 0,
+          "deadLetterQueueName": "",
+          "contentBasedDeduplication": false
+        }
+      }
+    },
+    "customTemplate": {
+      "dialect": null,
+      "definitions": null
+    },
+    "envVariables": [
+      {
+        "lambdaId": "all",
+        "varKey": "SIGMA_AWS_ACC_ID",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      }
+    ],
+    "packageJSON": {
+      "dependencies": {}
+    }
+  },
+  "PROJECT_META": {
+    "projectName": "VCS-20-09-2019",
+    "projectDescription": "",
+    "projectVersion": "1.0.0",
+    "projectRegion": "us-east-1",
+    "platform": "AWS",
+    "platformRegions": {},
+    "lastSave": 1568973598671
+  },
+  "VCS_STATE": {
+    "provider": "GitHub",
+    "repo": {
+      "name": "VCS-20-09-2019",
+      "url": "https://github.com/Kumudikatest/VCS-20-09-2019"
+    }
+  }
+}
